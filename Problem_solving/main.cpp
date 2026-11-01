@@ -1,11 +1,29 @@
 ﻿#include <iostream>
 #include <cmath> 
+#include <math.h>
+
 using std::cin;
 using std::cout;
 using std::endl;
+
 //#define Stepen
-#define Week
+//#define Week
+//#define Vector
+#define Function
+
 using namespace std;
+
+
+//float vector(int x, int y, int z);
+double step(float m, int e)
+{
+	float t = 1;
+	for (0; e; e--)
+	{
+		t = t * m;
+	}
+	return t; 
+}
 
 void main()
 {
@@ -93,12 +111,72 @@ void main()
 		default: { cout << "введите число от 1 до 7 и выберите день недели, спасибо за понимание" << endl; cin >> number;}
 		
 	}
-	 
-		
-			
+	cout << endl; 
+	 		
 		
 
 #endif // Week
 
+#ifdef Vector
+	cout << "\t\tВведите координаты для вычисления длинны вектора ... " << endl; 
+
+	/*double aX(0.0), aY(0.0), aZ(0.0);
+	double VectorLen(0.0);
+
+	cout << "Введите Х: "; 
+	cin >> aX; 
+	
+	cout << "Введите Y: ";
+	cin >> aY;
+	
+	cout << "Введите Z: ";
+	cin >> aZ;
+	cout << endl;
+
+	cout << "Вы ввели следующие значения: " << "X= " << aX << "; Y = " << aY << "; Z = " << aZ << endl; 
+	VectorLen = sqrt(aX * aX + aY * aY + aZ * aZ); 
+	cout << "длинна вектора равна:  " << VectorLen << endl; */
+
+	int x, y, z; 
+	cout << "Введите Х: ";
+	cin >> x;
+
+	cout << "Введите Y: ";
+	cin >> y;
+
+	cout << "Введите Z: ";
+	cin >> z;
+	cout << endl;
+	cout << "Вы ввели следующие значения: " << "X= " << x << "; Y = " << y << "; Z = " << z << endl;
+	cout << "длинна вектора равна:  " << vector(x,y,z) << endl; 
+
+#endif // Vector
+
+#ifdef Function 
+	
+	cout << "\t\t\t Вычисление значения" << endl; 
+	
+	const double x1 = -1.1, x2 = 0.3, x3 = 0.2; // параметры 
+	double y; // итоговое
+	for (float x = x1; x < x2; x += x3)
+	{
+		for (int m = 1; m < 5; ++m)
+		{
+			y = step(x, m) * step(sin(x * m), m);
+			cout << "Значение функции = " << y << " \t\t При m = " << m << endl; 
+		}
+		cout << "вычислено при х = " << x << endl; 
+	}
+	system("pause"); 
+
+
+#endif // Function 
+
 
 }
+//float vector(int x, int y, int z)
+//{
+//	float v; 
+//	v = sqrt(pow(x, 2.0) + pow(y, 2.0) + pow(z, 2.0));
+//	return v; 
+//}
