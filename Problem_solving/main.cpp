@@ -9,7 +9,11 @@ using std::endl;
 //#define Stepen
 //#define Week
 //#define Vector
-#define Function
+//#define Function
+//#define Plo
+//#define IMT
+//#define SYM
+#define COLOR
 
 using namespace std;
 
@@ -171,6 +175,68 @@ void main()
 
 
 #endif // Function 
+
+#ifdef Plo
+	cout << "\t\t Вычисления площади круга ..... " << endl; 
+	const double Pi = 3.14; 
+	int a; 
+	double S; 
+	cout << "Введите значение (радиус круга) для определения площади: " << endl; 
+	cin >> a; 
+	S = Pi * a * a; 
+	cout << "Площадь круга равна = " << S << endl; 
+
+#endif // Plo
+
+#ifdef IMT
+
+	cout << "\t\t Вычисления индекса масса тела человека ..... " << endl;
+	double M, Rost, Imt;
+	cout << "Введите массу тела: ";
+	cin >> M;
+	cout << "Введите рост человека: "; 
+	cin >> Rost; 
+	double m = Rost / 100; 
+	Imt = (M) / (m * m);
+	cout << "Индекс массы тела человека равна = " << Imt << endl;
+
+#endif // IMT
+
+#ifdef SYM
+	int packed{}; 
+	char ch{}; 
+	cout << "Введите первый символа в консоль: "; 
+	cin >> ch; 
+	cout << endl; 
+	packed |= ch; 
+	cout << "Введите второй символ: ";
+	cin >> ch; 
+	packed <<= 8; 
+	packed |= ch;
+	cout << endl;
+	cout << "Введите третий символ: "; 
+	cin >> ch; 
+	packed <<= 8;
+	packed |= ch;
+
+	cout << "Получилось число: " << packed << endl; 
+	// обратно 
+	int mask{ 0xFF }; 
+	ch = (packed >> 16) & mask;
+	cout << "Вывод символов на консоль: "<<ch; 
+	ch = (packed >> 8) & mask; 
+	cout << ch; 
+	ch = packed & mask; 
+	cout << ch << endl; 
+
+
+#endif // SYM
+
+#ifdef COLOR
+
+#endif // COLOR
+
+
 
 
 }
