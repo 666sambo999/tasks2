@@ -13,7 +13,9 @@ using std::endl;
 //#define Plo
 //#define IMT
 //#define SYM
-#define COLOR
+//#define COLOR
+//#define RGB
+#define Perem
 
 using namespace std;
 
@@ -27,7 +29,7 @@ double step(float m, int e)
 		t = t * m;
 	}
 	return t; 
-}
+}// шаги 
 
 void main()
 {
@@ -233,10 +235,58 @@ void main()
 #endif // SYM
 
 #ifdef COLOR
+	cout << "\t\t\tЦвета" << endl;
+	int color{};
+	int a{};
+	cout << "введите значение для красного цвета: ";
+	cin >> a; 
+	color |= a;
+	cout << endl; 
+	cout << "введите значение для зеленого цвета: ";
+	cin >> a;
+	color <<=8;
+	color |= a;
+	cout << endl;
+	cout << "введите значение для синего цвета: ";
+	cin >> a;
+	color <<=8;
+	color |= a; 
+	cout << endl;
+	cout << "Выводим числовое значение:" << color << endl; 
 
 #endif // COLOR
 
+#ifdef RGB
+	cout << "\t\t\t\tЦвета 2 подход" << endl; 
 
+	int color{ 0x04F1A2u };
+	
+	int mask{ 0xFFu };
+	int red { (color >> 16) & mask };
+	cout << "Вывод red (цвета) на консоль: " << red << endl; 
+	int green{ (color >> 8) & mask };
+	cout << "Вывод green (цвета) на консоль: " << green << endl;
+	int blue{ color & mask };
+	cout << "Вывод blue (цвета) на консоль: " << blue << endl;
+
+	cout << "Вывод green (цвета) на консоль: " << hex << red << endl;
+	cout << "Вывод green (цвета) на консоль: " << hex << green << endl;
+	cout << "Вывод blue (цвета) на консоль: " << hex << blue << endl;
+
+#endif // RGB
+
+#ifdef Perem
+	cout << "Подменные переменные" << endl; 
+
+	int a = 8;  // 1000
+	int b = 11;  // 1011
+	a = a ^ b;  // 1000^1011 = 0011; 
+	b = a ^ b;  // 0011^1011 = 1000;
+	a = a ^ b;  // 0011^1000 = 1011;
+	cout << "a = " << a << endl;
+	cout << "b = " << b << endl; 
+
+#endif // Perem
 
 
 }
